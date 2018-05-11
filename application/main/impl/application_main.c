@@ -16,8 +16,4 @@ int main(void)
     BOARD_InitBootPins();
     BOARD_InitBootPeripherals();
 
-
-    // Bootup
-
-    BOARD_InitOSC();
 }

@@ -111,13 +111,13 @@ typedef enum
 #define DEVICE_ID     0x08 // primary disk drive
 typedef enum
 {
-    CMD_LISTEN    = 0x20,
-    CMD_UNLISTEN  = 0x3f,
-    CMD_TALK      = 0x40,
-    CMD_UNTALK    = 0x5f,
-    CMD_OPENCHDAT = 0x60,
-    CMD_CLOSE     = 0xe0,
-    CMD_OPEN      = 0xf0,
+    IEC_Command_Listen   = 0x20,
+    IEC_Command_Unlisten = 0x3f,
+    IEC_Command_Talk     = 0x40,
+    IEC_Command_Untalk   = 0x5f,
+    IEC_Command_OpenDat  = 0x60,
+    IEC_Command_Close    = 0xe0,
+    IEC_Command_Open     = 0xf0,
 } IEC_Command_t;
 
 /* usb read write states */

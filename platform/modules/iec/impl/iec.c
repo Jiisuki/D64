@@ -10,7 +10,9 @@
 #include <stdint.h>         /* For uint8_t definition */
 #include <stdbool.h>        /* For true/false definition */
 
+#ifndef WIN32
 #include "fsl_gpio.h"
+#endif
 
 #include "d64Iface.h"
 #include "fifoIface.h"
@@ -251,20 +253,32 @@ static void IEC_setATN(const IEC_Output_t value)
 
 static IEC_Input_t IEC_readDAT(void)
 {
+#ifndef WIN32
     const IEC_Input_t result = (GPIO_PinRead(kGPIO_PORTA, 0)) ? IEC_Input_False : IEC_Input_True;
+#else
+    const IEC_Input_t result = IEC_Input_False;
+#endif
     return (result);
 }
 
 static IEC_Input_t IEC_readCLK(void)
 {
+#ifndef WIN32
     const IEC_Input_t result = (GPIO_PinRead(kGPIO_PORTA, 0)) ? IEC_Input_False : IEC_Input_True;
+#else
+    const IEC_Input_t result = IEC_Input_False;
+#endif
     return (result);
 }
 
 #ifdef USE_IEC_ATN_MACRO
 static IEC_Input_t IEC_readATN(void)
 {
+#ifndef WIN32
     const IEC_Input_t result = (GPIO_PinRead(kGPIO_PORTA, 0)) ? IEC_Input_False : IEC_Input_True;
+#else
+    const IEC_Input_t result = IEC_Input_False;
+#endif
     return (result);
 }
 #endif
